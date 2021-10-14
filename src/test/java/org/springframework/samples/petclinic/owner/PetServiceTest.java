@@ -1,34 +1,28 @@
 package org.springframework.samples.petclinic.owner;
 
-import io.cucumber.java.Before;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @RunWith(Parameterized.class)
-class PetServiceTest {
+public class PetServiceTest {
 
-	private PetService petService;
+	public PetService petService;
 
 	Owner owner;
 	static Pet jack, jhon, frank;
 	public int petId;
 	public Pet expectedPet;
 
-	public PetServiceTest(int petId, Pet expectedPet) {
-		this.petId = petId;
-		this.expectedPet = expectedPet;
-	}
-
-	@BeforeEach
+	@Before
 	public void setup() {
 		petService = mock(PetService.class);
 		jack = new Pet(); jack.setId(11);
@@ -40,8 +34,12 @@ class PetServiceTest {
 		petService.savePet(frank, owner);
 	}
 
+	public PetServiceTest(int petId, Pet expectedPet) {
+		this.petId = petId;
+		this.expectedPet = expectedPet;
+	}
 
-	@Parameterized.Parameters
+	@Parameters
 	public static Collection<Object[]> parameters() {
 		return Arrays.asList(new Object[][] {
 			{11, jack},
@@ -53,7 +51,7 @@ class PetServiceTest {
 	@Test
 	public void testFindPet() {
 		System.out.println("Test for Id : " + petId);
-		assertSame(petService.findPet(petId), expectedPet);
+		assertEquals(petService.findPet(petId), expectedPet);
 	}
 
 }

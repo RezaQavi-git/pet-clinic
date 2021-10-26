@@ -57,9 +57,9 @@ class PetManagerTest {
 
 	}
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Dummy, Stub
+	// Validation : State
+	// Approach : Mockity
 	@Test
 	public void testFindOwner() {
 		when(owners.findById(1)).thenReturn(Andy);
@@ -73,9 +73,9 @@ class PetManagerTest {
 		verify(log).info("find owner {}", 11);
 	}
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Dummy, Stub
+	// Validation : State
+	// Approach : Mockity
 	@Test
 	public void testFindPet () {
 		when(pets.get(1)).thenReturn(Alvin);
@@ -90,9 +90,9 @@ class PetManagerTest {
 	}
 
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Spy, Stub
+	// Validation : Behavior
+	// Approach : Mockity
 	@Test
 	public void testNewPet() {
 		Owner owner = spy(Owner.class);
@@ -102,12 +102,12 @@ class PetManagerTest {
 		verify(log).info("add pet for owner {}", 10);
 	}
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Spy, Stub
+	// Validation : Behavior
+	// Approach : Mockity
 	@Test
 	public void testSavePet() {
-		Owner owner = mock(Owner.class);
+		Owner owner = spy(Owner.class);
 		Alvin.setId(1);
 		petManager.savePet(Alvin, owner);
 
@@ -116,9 +116,9 @@ class PetManagerTest {
 		verify(log).info("save pet {}", 1);
 	}
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Mock, Stub
+	// Validation : State
+	// Approach : Mockity
 	@Test
 	public void testGetOwnerPets() {
 		Owner owner = mock(Owner.class);
@@ -130,9 +130,9 @@ class PetManagerTest {
 		verify(log).info("finding the owner's pets by id {}", 1);
 	}
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Mock, Stub
+	// Validation : State
+	// Approach : Mockity
 	@Test
 	public void testGetOwnerPetTypes() {
 		Owner owner = mock(Owner.class);
@@ -146,9 +146,9 @@ class PetManagerTest {
 		verify(log).info("finding the owner's petTypes by id {}", 1);
 	}
 
-	// Test Model :
-	// Validation :
-	// Approach :
+	// Test Model : Mock, Stub
+	// Validation : State
+	// Approach : Mockity
 	@Test
 	public void testGetVisitsBetween() {
 		LocalDate startDate = LocalDate.of(2021, 11, 13);
@@ -165,6 +165,5 @@ class PetManagerTest {
 		verify(pet).getVisitsBetween(startDate, endDate);
 		verify(log).info("get visits for pet {} from {} since {}", 1, startDate, endDate);
 	}
-
 
 }

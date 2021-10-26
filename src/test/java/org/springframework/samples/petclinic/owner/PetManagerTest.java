@@ -80,13 +80,13 @@ class PetManagerTest {
 	public void testFindPet () {
 		when(pets.get(1)).thenReturn(Alvin);
 		assertEquals(Alvin, petManager.findPet(1));
-		verify(pets).get(1);
-		verify(log).info("find pet by id {}", 1);
+//		verify(pets).get(1);
+//		verify(log).info("find pet by id {}", 1);
 
 		//pet ont exist
 		assertNull(petManager.findPet(11));
-		verify(pets).get(11);
-		verify(log).info("find pet by id {}", 11);
+//		verify(pets).get(11);
+//		verify(log).info("find pet by id {}", 11);
 	}
 
 
@@ -165,5 +165,34 @@ class PetManagerTest {
 		verify(pet).getVisitsBetween(startDate, endDate);
 		verify(log).info("get visits for pet {} from {} since {}", 1, startDate, endDate);
 	}
+
+
+	// PART THREE
+
+	// State verification
+	@Test
+	public void testFindPet_State () {
+		when(pets.get(1)).thenReturn(Alvin);
+		assertEquals(Alvin, petManager.findPet(1));
+
+		//pet ont exist
+		assertNull(petManager.findPet(11));
+	}
+
+	// Behavior verification
+	@Test
+	public void testFindPet_Behavior () {
+		when(pets.get(1)).thenReturn(Alvin);
+		assertEquals(Alvin, petManager.findPet(1));
+		verify(pets).get(1);
+		verify(log).info("find pet by id {}", 1);
+
+		//pet ont exist
+		assertNull(petManager.findPet(11));
+		verify(pets).get(11);
+		verify(log).info("find pet by id {}", 11);
+	}
+
+
 
 }

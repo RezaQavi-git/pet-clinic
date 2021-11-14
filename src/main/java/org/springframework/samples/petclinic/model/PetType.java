@@ -34,11 +34,11 @@ public class PetType extends NamedEntity {
 
 	private Boolean rare = false;
 
-	public void setRare(Boolean rare){
+	public void setRare(Boolean rare) {
 		this.rare = rare;
 	}
 
-    public Boolean getRare() {
-        return this.rare;
-    }
+	public Boolean getRare() {
+		return this.rare;
+	}
 }

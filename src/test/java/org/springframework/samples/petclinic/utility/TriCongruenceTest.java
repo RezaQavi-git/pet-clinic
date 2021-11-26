@@ -392,12 +392,34 @@ class TriCongruenceTest {
 
 
 	/**
-	* TODO
-	* explain your answer here
-	*/
-	private static boolean questionTwo(boolean a, boolean b, boolean c, boolean d, boolean e) {
-		//		predicate = a predicate with any number of clauses
-		return false;
+	 * f = ac + bd
+	 * Implicants: {ac, bd, ~a~b, ~a~d, ~b~c, ~c~d}
+	 *
+	 * Impicants of just f: {ac, bd}
+	 *
+	 * ac unique true points => {TTTF, TFTT, TFTF}
+	 * for clause a -> FFTF
+	 * for clause c -> TFFF
+	 *
+	 * bd unique true points => {FTTT, TTFT, FTFT}
+	 * for clause b -> FFFT
+	 * for clause d -> FTFF
+	 *
+	 * => CUTPNFP set = {TFTF, FTFT, FFTF, TFFF, FFFT, FTFF}
+	 *
+	 * So for subsuming CUTPNFP, the set above should satisfy every implicant in UTPC:
+	 * ac => TFTF satisfies
+	 * bd => FTFT satisfies
+	 * ~a~b => no one (we should had FFTT)
+	 * ~a~d => no one (we should had FTTF)
+	 * ~b~c => no one (we should had TFFT)
+	 * ~c~d => no one (we should had TTFF)
+	 *
+	 * => CUTPNFP doesn't subsume UTPC.
+	 */
+	private static boolean questionTwo(boolean a, boolean b, boolean c, boolean d) {
+		boolean predicate = (a&c) | (b&d);
+		Assertions.assertTrue(true);
 	}
 
 

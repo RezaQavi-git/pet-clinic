@@ -155,7 +155,7 @@ class TriCongruenceTest {
 		Triangle t1 = new Triangle(3, 4, 7);
 		Triangle t2 = new Triangle(3, 4, 7);
 		boolean areCongruent = TriCongruence.areCongruent(t1, t2);
-		Assertions.assertTrue(true);
+		Assertions.assertTrue(areCongruent);
 	}
 
 	@UniqueTruePoint(
@@ -193,7 +193,7 @@ class TriCongruenceTest {
 		Triangle t1 = new Triangle(3, 4, 7);
 		Triangle t2 = new Triangle(3, 4, 7);
 		boolean areCongruent = TriCongruence.areCongruent(t1, t2);
-		Assertions.assertTrue(true);
+		Assertions.assertTrue(areCongruent);
 	}
 
 	@UniqueTruePoint(
@@ -231,7 +231,7 @@ class TriCongruenceTest {
 		Triangle t1 = new Triangle(3, 4, 7);
 		Triangle t2 = new Triangle(3, 4, 7);
 		boolean areCongruent = TriCongruence.areCongruent(t1, t2);
-		Assertions.assertTrue(true);
+		Assertions.assertTrue(areCongruent);
 	}
 
 
@@ -349,7 +349,7 @@ class TriCongruenceTest {
 		Triangle t1 = new Triangle(3, 4, 7);
 		Triangle t2 = new Triangle(3, 4, 7);
 		boolean areCongruent = TriCongruence.areCongruent(t1, t2);
-		Assertions.assertTrue(true);
+		Assertions.assertTrue(areCongruent);
 	}
 
 	@UniqueTruePoint(
@@ -385,7 +385,7 @@ class TriCongruenceTest {
 		Triangle t1 = new Triangle(3, 4, 7);
 		Triangle t2 = new Triangle(3, 4, 7);
 		boolean areCongruent = TriCongruence.areCongruent(t1, t2);
-		Assertions.assertTrue(true);
+		Assertions.assertTrue(areCongruent);
 	}
 
 

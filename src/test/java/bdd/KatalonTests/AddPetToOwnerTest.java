@@ -19,8 +19,8 @@ public class AddPetToOwnerTest {
   JavascriptExecutor js;
   @Before
   public void setUp() throws Exception {
-	  System.setProperty("webdriver.chrome.driver", "C:\\Downloads\\chromedriver.exe");
-	  driver = new ChromeDriver();
+    System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+    driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     js = (JavascriptExecutor) driver;
@@ -29,19 +29,23 @@ public class AddPetToOwnerTest {
   @Test
   public void testAddPetToOwner() throws Exception {
     driver.get("http://localhost:8080/");
-    driver.findElement(By.xpath("//div[@id='main-navbar']/ul/li[2]/a/span[2]")).click();
+	driver.findElement(By.xpath("//div[@id='main-navbar']/ul/li[2]/a/span[2]")).click();
+	driver.findElement(By.id("lastName")).click();
+    driver.findElement(By.id("lastName")).click();
+    driver.findElement(By.id("lastName")).click();
+    //ERROR: Caught exception [ERROR: Unsupported command [doubleClick | id=lastName | ]]
+    driver.findElement(By.id("lastName")).click();
     driver.findElement(By.id("lastName")).click();
     driver.findElement(By.id("lastName")).clear();
-    driver.findElement(By.id("lastName")).sendKeys("Qavi");
+    driver.findElement(By.id("lastName")).sendKeys("QaVi");
     driver.findElement(By.xpath("//button[@type='submit']")).click();
-    driver.findElement(By.xpath("//table[@id='owners']/tbody/tr[2]/td/a")).click();
     driver.findElement(By.xpath("//a[contains(text(),'Add\n      New Pet')]")).click();
     driver.findElement(By.id("name")).click();
     driver.findElement(By.id("name")).clear();
     driver.findElement(By.id("name")).sendKeys("Topoli");
     driver.findElement(By.id("birthDate")).click();
     driver.findElement(By.id("birthDate")).clear();
-    driver.findElement(By.id("birthDate")).sendKeys("2021-01-05");
+    driver.findElement(By.id("birthDate")).sendKeys("2021-05-03");
     driver.findElement(By.id("type")).click();
     new Select(driver.findElement(By.id("type"))).selectByVisibleText("cat");
     driver.findElement(By.xpath("//button[@type='submit']")).click();

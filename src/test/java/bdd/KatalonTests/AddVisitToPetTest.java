@@ -19,7 +19,7 @@ public class AddVisitToPetTest {
   JavascriptExecutor js;
   @Before
   public void setUp() throws Exception {
-  	System.setProperty("webdriver.chrome.driver", "C:\\Downloads\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -32,13 +32,12 @@ public class AddVisitToPetTest {
     driver.findElement(By.xpath("//div[@id='main-navbar']/ul/li[2]/a/span[2]")).click();
     driver.findElement(By.id("lastName")).click();
     driver.findElement(By.id("lastName")).clear();
-    driver.findElement(By.id("lastName")).sendKeys("Qavi");
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    driver.findElement(By.xpath("//table[@id='owners']/tbody/tr[2]/td/a")).click();
+    driver.findElement(By.id("lastName")).sendKeys("QaVi");
+    driver.findElement(By.id("search-owner-form")).submit();
     driver.findElement(By.xpath("//a[contains(text(),'Add\n                  Visit')]")).click();
     driver.findElement(By.id("description")).click();
     driver.findElement(By.id("description")).clear();
-    driver.findElement(By.id("description")).sendKeys("it was so nice");
+    driver.findElement(By.id("description")).sendKeys("It was so cute");
     driver.findElement(By.xpath("//button[@type='submit']")).click();
   }
 

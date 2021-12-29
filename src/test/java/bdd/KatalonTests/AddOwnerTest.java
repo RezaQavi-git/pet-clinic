@@ -19,7 +19,7 @@ public class AddOwnerTest {
   JavascriptExecutor js;
   @Before
   public void setUp() throws Exception {
-  	System.setProperty("webdriver.chrome.driver", "C:\\Downloads\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -29,19 +29,19 @@ public class AddOwnerTest {
   @Test
   public void testAddOwner() throws Exception {
     driver.get("http://localhost:8080/");
-    driver.findElement(By.linkText("Find owners")).click();
+    driver.findElement(By.xpath("//div[@id='main-navbar']/ul/li[2]/a/span[2]")).click();
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).click();
     driver.findElement(By.id("firstName")).clear();
-    driver.findElement(By.id("firstName")).sendKeys("Reza");
+    driver.findElement(By.id("firstName")).sendKeys("ReZa");
     driver.findElement(By.id("lastName")).clear();
-    driver.findElement(By.id("lastName")).sendKeys("Qavi");
+    driver.findElement(By.id("lastName")).sendKeys("QaVi");
     driver.findElement(By.id("address")).clear();
     driver.findElement(By.id("address")).sendKeys("Tehran");
     driver.findElement(By.id("city")).clear();
     driver.findElement(By.id("city")).sendKeys("Tehran");
     driver.findElement(By.id("telephone")).clear();
-    driver.findElement(By.id("telephone")).sendKeys("02112365478");
+    driver.findElement(By.id("telephone")).sendKeys("02132145698");
     driver.findElement(By.xpath("//button[@type='submit']")).click();
   }
 
